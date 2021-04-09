@@ -1,48 +1,44 @@
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+x<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" id="logo" href="#">Photo App</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
+    <ul class="navbar-nav mr-auto w-100">
       <% if user_signed_in? %>
         <li class="nav-item active">
           <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Dropdown
+            Images
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="#">Action</a>
-            <a class="dropdown-item" href="#">Another action</a>
+            <%= link_to "New Image", new_image_path, class: "dropdown-item", title: 'Upload Image'  %>
+            <%= link_to "Images", images_path, class: "dropdown-item", title: 'Image Listing'  %>
             <div class="dropdown-divider"></div>
             <a class="dropdown-item" href="#">Something else here</a>
           </div>
         </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
-        </li>
-        <li class="nav-item">
+
+        <ul class="nav navbar-right col-md-4 pt-2" id="user">
+          <% if current_user %>
+            <li class="col-md-8 user-name nav-item">
+              <%= link_to ('<i class="fa fa-user"></i> ' + truncate(current_user.email, length: 40)).html_safe, edit_user_registration_path, title: 'Edit Profile' %>
+            </li>
+          <% end %>
+        </ul>
+
+        <li class="nav-item ml-auto">
           <%= link_to("Logout", destroy_user_session_path,
-            class: "btn btn-lg btn-outline-light text-light", method: :delete)%>
+            class: "btn btn-lg btn-danger text-light", method: :delete)%>
         </li>        
       <% else %>
-        <li class="nav-item">
-          <%= link_to "Log in", new_user_session_path, class: "nav-link" %>
-        </li>
-        <li class="nav-item">
-          <%= link_to "Sign up", new_user_registration_path, class: "nav-link" %>
+        <li class="nav-item ml-auto">
+          <%= link_to "Log in", new_user_session_path, class: "nav-link btn btn-lg btn-primary text-light" %>
         </li>
       <% end %>
     </ul>
-    <form class="form-inline my-2 my-lg-0">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-      <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
-    </form>
   </div>
 </nav> 
