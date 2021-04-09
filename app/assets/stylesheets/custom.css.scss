@@ -1,15 +1,21 @@
 @import 'bootstrap/dist/css/bootstrap';
 
-html,
-body {
-  height: 100%;
-  font-size: 15px;
+*{
+  margin: 0;
+  padding: 0;
 }
 
+// html,{
+//   height: 100%;
+//   font-size: 15px;
+// }
+body{
+  margin: 0;
+  font-size: 15px;
+}
 #page-content {
   flex: 1 0 auto;
   background-color: rgb(239, 255, 254);
-  // margin: -30px 0 -40px 0;
 }
 
 #sticky-footer {
@@ -25,13 +31,13 @@ body {
 }
 
 #logo {
-  float: left;
   font-size: 1.8em;
   color: #fff;
   text-transform: uppercase;
-  letter-spacing: -1px;
   font-weight: bold;
+  padding-top: 17px;
 }
+#logo:hover{background-color: transparent !important;}
 
 #home-container {
   margin-top: 25px;
@@ -56,10 +62,15 @@ body {
   font-stretch: expanded;
 }
 
+.jumbotron-title h2{
+  font-size: 30px;
+}
+
 .features {
   ul {
     margin-left: 0;
     padding-left: 15px;
+    line-height: 20px;
   }
 }
 
@@ -78,3 +89,16 @@ body {
   background-color: #17a2b8 !important;
   border: 1px solid #17a2b8 !important;
 }
+.plan p a{color: #fff;}
+
+.plans{padding: 20px 0;}
+
+footer{
+  position: fixed;
+   left: 0;
+   bottom: 0;
+   width: 100%
+}
+
+.panel-body ul{list-style: none;}
+

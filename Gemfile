@@ -10,6 +10,11 @@ gem 'devise'
 gem 'twitter-bootstrap-rails'
 gem 'devise-bootstrap-views'
 gem 'stripe'
+
+gem 'carrierwave', '~> 2.2.1'
+gem 'mini_magick', '~> 4.11.0'
+# gem 'fog'
+gem 'fog-aws'
 #gem 'sprockets'
 # Use Puma as the app server
 gem 'puma', '~> 5.0'
@@ -40,7 +45,6 @@ end
 
 group :production do
   gem 'pg'
-  gem 'rails_12factor'
 end
 
 group :development do
